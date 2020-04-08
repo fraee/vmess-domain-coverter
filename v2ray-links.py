@@ -11,7 +11,7 @@ def get_links(req):
     return urlopen(req, timeout=20).read()
 
 
-subscribe_url = 'Your subscription link'
+subscribe_url = '< Your subscription link >'
 ua = {
     'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/79.0.3945.88 Safari/537.36'}
@@ -43,6 +43,6 @@ for vl in vmess_links:
     base64decode = 'vmess://' + base64link.decode('utf-8')
     convert += base64decode + '\n'
 
-filename = '/your/file/path'
+filename = '< /your/file/path >'
 with open(filename, 'w') as file_obj:
     file_obj.write(str(b64encode(convert.encode()), 'utf-8'))
