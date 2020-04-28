@@ -29,6 +29,8 @@ vmess_links = b64decode(return_content).decode('utf-8').splitlines()
 
 convert = ''
 for vl in vmess_links:
+    if not vl:
+        continue
     jn = json.loads(b64decode(vl.replace('vmess://', '')).decode('utf-8'))
     print('domain:' + jn['add'])
     try:
