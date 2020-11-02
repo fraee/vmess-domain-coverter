@@ -3,6 +3,7 @@ from urllib.request import urlopen, Request
 from base64 import b64decode, b64encode
 import json
 from retrying import retry
+import ssl
 
 
 @retry(stop_max_attempt_number=3)
@@ -10,7 +11,7 @@ def get_links(req):
     print('Trying to get links...')
     return urlopen(req, timeout=20).read()
 
-
+ssl._create_default_https_context = ssl._create_unverified_context
 subscribe_url = '< Your subscription link >'
 ua = {
     'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) '
